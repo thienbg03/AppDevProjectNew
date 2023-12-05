@@ -44,10 +44,9 @@
             this.colorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.blackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.redToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dateLabel = new System.Windows.Forms.Label();
             this.greenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.blueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.arialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timesNewRomanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comicSansMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,6 +58,7 @@
             this.raiseVolumeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lowerVolumeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.muteUnmuteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dateLabel = new System.Windows.Forms.Label();
             this.liveClock1 = new DeadlineDivine.LiveClock();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -192,30 +192,6 @@
             this.redToolStripMenuItem.Text = "&Red";
             this.redToolStripMenuItem.Click += new System.EventHandler(this.redToolStripMenuItem_Click);
             // 
-            // fontToolStripMenuItem
-            // 
-            this.fontToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.arialToolStripMenuItem,
-            this.timesNewRomanToolStripMenuItem,
-            this.comicSansMSToolStripMenuItem,
-            this.courierToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.boldToolStripMenuItem,
-            this.italicToolStripMenuItem});
-            this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
-            this.fontToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.fontToolStripMenuItem.Text = "&Font";
-            // 
-            // dateLabel
-            // 
-            this.dateLabel.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateLabel.Location = new System.Drawing.Point(12, 90);
-            this.dateLabel.Name = "dateLabel";
-            this.dateLabel.Size = new System.Drawing.Size(367, 38);
-            this.dateLabel.TabIndex = 9;
-            this.dateLabel.Text = "Date";
-            this.dateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // greenToolStripMenuItem
             // 
             this.greenToolStripMenuItem.Name = "greenToolStripMenuItem";
@@ -229,6 +205,20 @@
             this.blueToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
             this.blueToolStripMenuItem.Text = "B&lue";
             this.blueToolStripMenuItem.Click += new System.EventHandler(this.blueToolStripMenuItem_Click);
+            // 
+            // fontToolStripMenuItem
+            // 
+            this.fontToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.arialToolStripMenuItem,
+            this.timesNewRomanToolStripMenuItem,
+            this.comicSansMSToolStripMenuItem,
+            this.courierToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.boldToolStripMenuItem,
+            this.italicToolStripMenuItem});
+            this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
+            this.fontToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.fontToolStripMenuItem.Text = "&Font";
             // 
             // arialToolStripMenuItem
             // 
@@ -290,20 +280,33 @@
             // raiseVolumeToolStripMenuItem
             // 
             this.raiseVolumeToolStripMenuItem.Name = "raiseVolumeToolStripMenuItem";
-            this.raiseVolumeToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.raiseVolumeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.raiseVolumeToolStripMenuItem.Text = "&Raise Volume";
+            this.raiseVolumeToolStripMenuItem.Click += new System.EventHandler(this.raiseVolumeToolStripMenuItem_Click);
             // 
             // lowerVolumeToolStripMenuItem
             // 
             this.lowerVolumeToolStripMenuItem.Name = "lowerVolumeToolStripMenuItem";
-            this.lowerVolumeToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.lowerVolumeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.lowerVolumeToolStripMenuItem.Text = "&Lower Volume";
+            this.lowerVolumeToolStripMenuItem.Click += new System.EventHandler(this.lowerVolumeToolStripMenuItem_Click);
             // 
             // muteUnmuteToolStripMenuItem
             // 
             this.muteUnmuteToolStripMenuItem.Name = "muteUnmuteToolStripMenuItem";
-            this.muteUnmuteToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.muteUnmuteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.muteUnmuteToolStripMenuItem.Text = "&Mute/Unmute";
+            this.muteUnmuteToolStripMenuItem.Click += new System.EventHandler(this.muteUnmuteToolStripMenuItem_Click);
+            // 
+            // dateLabel
+            // 
+            this.dateLabel.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateLabel.Location = new System.Drawing.Point(12, 90);
+            this.dateLabel.Name = "dateLabel";
+            this.dateLabel.Size = new System.Drawing.Size(367, 38);
+            this.dateLabel.TabIndex = 9;
+            this.dateLabel.Text = "Date";
+            this.dateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // liveClock1
             // 

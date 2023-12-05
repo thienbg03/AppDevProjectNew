@@ -7,14 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WMPLib;
 
 namespace DeadlineDivine
 {
     public partial class MenuForm : Form
     {
+        WindowsMediaPlayer player = new WindowsMediaPlayer();
         public MenuForm()
         {
             InitializeComponent();
+            player.URL = "bg-music.mp3";
         }
 
         private void addTaskButton_Click(object sender, EventArgs e)
@@ -51,6 +54,9 @@ namespace DeadlineDivine
         private void MenuForm_Load(object sender, EventArgs e)
         {
             dateLabel.Text = DateTime.Now.ToLongDateString();
+            player.controls.play();
+            player.settings.volume = 10;
+            player.settings.setMode("loop", true);
         }
 
         private void ClearColor()
@@ -165,6 +171,27 @@ namespace DeadlineDivine
             upcomingLabel.Font = new Font("Courier", 24, upcomingLabel.Font.Style);
             dateLabel.Font = new Font("Courier", 16, dateLabel.Font.Style);
             liveClock1.Font = new Font("Courier", 16, liveClock1.Font.Style);
+        }
+
+        private void muteUnmuteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
+            {
+                player.controls.pause();
+            } else
+            {
+                player.controls.play();
+            }
+        }
+
+        private void raiseVolumeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            player.settings.volume += 10;
+        }
+
+        private void lowerVolumeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            player.settings.volume -= 10;
         }
     }
 }
