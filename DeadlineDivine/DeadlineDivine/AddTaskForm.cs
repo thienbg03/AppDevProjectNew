@@ -44,7 +44,8 @@ namespace DeadlineDivine
                 DateTime time = timePicker.Value;
                 DateTime deadline = new DateTime(date.Year, date.Month, date.Day, time.Hour, time.Minute, 0);
                 Task task = new Task(title, deadline, description);
-                connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=E:\\School\\AppDevProject\\DeadlineDivine\\DeadlineDivine\\TaskDatabase.mdf;Integrated Security=True");
+                string cnString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\TaskDatabase.mdf;Integrated Security=True";
+                connection = new SqlConnection(cnString);
                 string query = "insert into Task values ('" + title + "','" + description + "','" + deadline.ToString("g") + "');";
                 cmd = new SqlCommand(query, connection);
 

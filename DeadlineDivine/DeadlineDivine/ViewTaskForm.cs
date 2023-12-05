@@ -76,8 +76,9 @@ namespace DeadlineDivine
             SqlConnection connection = null;
             SqlCommand cmd = null;
             try
-            {                            
-                connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=E:\\School\\AppDevProject\\DeadlineDivine\\DeadlineDivine\\TaskDatabase.mdf;Integrated Security=True");
+            {
+                string cnString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\TaskDatabase.mdf;Integrated Security=True";
+                connection = new SqlConnection(cnString);
                 string query = "Select * From Task";
                 cmd = new SqlCommand(query, connection);
                 connection.Open();
@@ -131,7 +132,8 @@ namespace DeadlineDivine
                 SqlCommand cmd = null;
                 try
                 {
-                    connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=E:\\School\\AppDevProject\\DeadlineDivine\\DeadlineDivine\\TaskDatabase.mdf;Integrated Security=True");
+                    string cnString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\TaskDatabase.mdf;Integrated Security=True";
+                    connection = new SqlConnection(cnString);
                     string query = "DELETE From Task WHERE Id ='" + id + "';";
                     cmd = new SqlCommand(query, connection);
                     connection.Open();
@@ -202,7 +204,8 @@ namespace DeadlineDivine
                     SqlCommand cmd = null;
                     try
                     {
-                        connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=E:\\School\\AppDevProject\\DeadlineDivine\\DeadlineDivine\\TaskDatabase.mdf;Integrated Security=True");
+                        string cnString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\TaskDatabase.mdf;Integrated Security=True";
+                        connection = new SqlConnection(cnString);
                         string query = "UPDATE Task SET Title ='" + stickNoteControl.getTitleText() +"', Description='" + stickNoteControl.getDescriptionText() + "', Deadline ='" + stickNoteControl.getDeadline().ToString("G") + "' WHERE Id =" + id + ";"; 
                         cmd = new SqlCommand(query, connection);
                         connection.Open();
