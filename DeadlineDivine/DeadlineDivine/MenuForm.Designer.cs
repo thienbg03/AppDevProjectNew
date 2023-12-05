@@ -33,7 +33,6 @@
             this.addTaskButton = new System.Windows.Forms.Button();
             this.viewTasksButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.upcomingLabel = new System.Windows.Forms.Label();
             this.Time = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -60,6 +59,7 @@
             this.muteUnmuteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dateLabel = new System.Windows.Forms.Label();
             this.liveClock1 = new DeadlineDivine.LiveClock();
+            this.upcomingDeadlines = new System.Windows.Forms.CheckedListBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,15 +102,6 @@
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.richTextBox1.Location = new System.Drawing.Point(385, 90);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(634, 473);
-            this.richTextBox1.TabIndex = 5;
-            this.richTextBox1.Text = "";
             // 
             // upcomingLabel
             // 
@@ -280,21 +271,21 @@
             // raiseVolumeToolStripMenuItem
             // 
             this.raiseVolumeToolStripMenuItem.Name = "raiseVolumeToolStripMenuItem";
-            this.raiseVolumeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.raiseVolumeToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.raiseVolumeToolStripMenuItem.Text = "&Raise Volume";
             this.raiseVolumeToolStripMenuItem.Click += new System.EventHandler(this.raiseVolumeToolStripMenuItem_Click);
             // 
             // lowerVolumeToolStripMenuItem
             // 
             this.lowerVolumeToolStripMenuItem.Name = "lowerVolumeToolStripMenuItem";
-            this.lowerVolumeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.lowerVolumeToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.lowerVolumeToolStripMenuItem.Text = "&Lower Volume";
             this.lowerVolumeToolStripMenuItem.Click += new System.EventHandler(this.lowerVolumeToolStripMenuItem_Click);
             // 
             // muteUnmuteToolStripMenuItem
             // 
             this.muteUnmuteToolStripMenuItem.Name = "muteUnmuteToolStripMenuItem";
-            this.muteUnmuteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.muteUnmuteToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.muteUnmuteToolStripMenuItem.Text = "&Mute/Unmute";
             this.muteUnmuteToolStripMenuItem.Click += new System.EventHandler(this.muteUnmuteToolStripMenuItem_Click);
             // 
@@ -318,16 +309,26 @@
             this.liveClock1.Size = new System.Drawing.Size(164, 30);
             this.liveClock1.TabIndex = 7;
             // 
+            // upcomingDeadlines
+            // 
+            this.upcomingDeadlines.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.upcomingDeadlines.FormattingEnabled = true;
+            this.upcomingDeadlines.Location = new System.Drawing.Point(404, 134);
+            this.upcomingDeadlines.Name = "upcomingDeadlines";
+            this.upcomingDeadlines.Size = new System.Drawing.Size(615, 424);
+            this.upcomingDeadlines.TabIndex = 10;
+            this.upcomingDeadlines.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.upcomingDeadlines_ItemCheck);
+            // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1031, 575);
+            this.Controls.Add(this.upcomingDeadlines);
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.liveClock1);
             this.Controls.Add(this.upcomingLabel);
-            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.viewTasksButton);
             this.Controls.Add(this.addTaskButton);
@@ -351,7 +352,6 @@
         private System.Windows.Forms.Button addTaskButton;
         private System.Windows.Forms.Button viewTasksButton;
         private System.Windows.Forms.Button exitButton;
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label upcomingLabel;
         private System.Windows.Forms.Timer Time;
         private LiveClock liveClock1;
@@ -378,6 +378,7 @@
         private System.Windows.Forms.ToolStripMenuItem raiseVolumeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lowerVolumeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem muteUnmuteToolStripMenuItem;
+        private System.Windows.Forms.CheckedListBox upcomingDeadlines;
     }
 }
 

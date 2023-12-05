@@ -204,10 +204,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="TaskDatabase.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="TaskDatabase_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>TaskDatabase.mdf</DependentUpon>
     </Content>
   </ItemGroup>

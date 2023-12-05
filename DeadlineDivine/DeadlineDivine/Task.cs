@@ -72,5 +72,11 @@ namespace DeadlineDivine
             
             }
         }
+
+        public override string ToString()
+        {
+            String title = this.title + ", " + this.deadline.ToString("G") + ", " + this.description; 
+            return title;
+        }
     }
 }

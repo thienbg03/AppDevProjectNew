@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,6 +16,7 @@ namespace DeadlineDivine
     public partial class MenuForm : Form
     {
         WindowsMediaPlayer player = new WindowsMediaPlayer();
+        List<Task> taskList = new List<Task>();
         public MenuForm()
         {
             InitializeComponent();
@@ -57,6 +60,8 @@ namespace DeadlineDivine
             player.controls.play();
             player.settings.volume = 10;
             player.settings.setMode("loop", true);
+            loadTaskDataIntoList();
+            display();
         }
 
         private void ClearColor()
@@ -192,6 +197,82 @@ namespace DeadlineDivine
         private void lowerVolumeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             player.settings.volume -= 10;
+        }
+
+        public void loadTaskDataIntoList()
+        {
+            SqlConnection connection = null;
+            SqlCommand cmd = null;
+            try
+            {
+                string cnString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\TaskDatabase.mdf;Integrated Security=True";
+                connection = new SqlConnection(cnString);
+                string query = "Select * From Task";
+                cmd = new SqlCommand(query, connection);
+                connection.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (taskList.Count > 0) { taskList.Clear(); }
+
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["ID"]);
+                    String title = reader.GetString(1);
+                    String description = reader.GetString(2);
+                    DateTime deadline = reader.GetDateTime(3);
+                    Task task = new Task(id, title, deadline, description);
+                    taskList.Add(task);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (connection != null) { connection.Close(); }
+                if (cmd != null) { cmd.Dispose(); }
+            }
+        }
+
+        public void display()
+        {
+            upcomingDeadlines.Items.Clear();
+            for (int i = 0; i <  taskList.Count; i++)
+            {
+                upcomingDeadlines.Items.Add(taskList[i].ToString());
+            }
+        }
+
+        private void upcomingDeadlines_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            var task = upcomingDeadlines.SelectedIndex;
+            var item = taskList[task].Id;
+            MessageBox.Show(item.ToString());
+            SqlConnection connection = null;
+            SqlCommand cmd = null;
+
+            try
+            {
+                string cnString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\TaskDatabase.mdf;Integrated Security=True";
+                connection = new SqlConnection(cnString);
+                string query = "DELETE FROM TASK WHERE Id = '" + item + "';";
+                
+                cmd = new SqlCommand(query, connection);
+                connection.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                    upcomingDeadlines.Items.RemoveAt(task);
+                loadTaskDataIntoList();
+                display();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (connection != null) { connection.Close(); }
+                if (cmd != null) { cmd.Dispose(); }
+            }
         }
     }
 }
