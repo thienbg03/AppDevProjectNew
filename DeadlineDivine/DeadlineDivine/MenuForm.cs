@@ -63,7 +63,7 @@ namespace DeadlineDivine
             player.controls.play();
             player.settings.volume = 10;
             player.settings.setMode("loop", true);
-
+            
         }
 
         private void ClearColor()

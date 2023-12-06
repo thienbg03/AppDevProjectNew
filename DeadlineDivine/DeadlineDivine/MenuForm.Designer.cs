@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuForm));
             this.mainLabel = new System.Windows.Forms.Label();
             this.addTaskButton = new System.Windows.Forms.Button();
             this.viewTasksButton = new System.Windows.Forms.Button();
@@ -341,6 +342,7 @@
             this.Controls.Add(this.addTaskButton);
             this.Controls.Add(this.mainLabel);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MenuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
