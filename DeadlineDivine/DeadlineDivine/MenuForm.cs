@@ -209,7 +209,8 @@ namespace DeadlineDivine
             {
                 string cnString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\TaskDatabase.mdf;Integrated Security=True";
                 connection = new SqlConnection(cnString);
-                string query = "Select * From Task";
+                string query = "SELECT * FROM Task WHERE CONVERT(DATE, Deadline) = CONVERT(DATE, GETDATE()) AND Deadline >= GETDATE()";
+
                 cmd = new SqlCommand(query, connection);
                 connection.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -237,8 +238,7 @@ namespace DeadlineDivine
         }
 
         public void display()
-        {
-            
+        {        
             upcomingDeadlines.Items.Clear();
             foreach (Task task in taskList)
             {
@@ -283,6 +283,24 @@ namespace DeadlineDivine
             }));
         }
 
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            for (int i = 0; i < upcomingDeadlines.Items.Count; i++)
+            {
+                var task = taskList[i];
+                var deadline = task.Deadline;
 
+             
+                if (deadline < DateTime.Now)
+                {
+ 
+                    taskList.RemoveAt(i);
+
+   
+                    upcomingDeadlines.Items.RemoveAt(i);
+                    i--;
+                }
+            }
+        }
     }
 }

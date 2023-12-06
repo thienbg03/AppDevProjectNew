@@ -33,7 +33,6 @@
             this.titleHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.deadlineHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.descriptionHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.displayAllButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
             this.sortDeadlineButton = new System.Windows.Forms.Button();
             this.addTask = new System.Windows.Forms.Button();
@@ -74,16 +73,6 @@
             // 
             this.descriptionHeader.Text = "Description";
             this.descriptionHeader.Width = 160;
-            // 
-            // displayAllButton
-            // 
-            this.displayAllButton.Location = new System.Drawing.Point(468, 334);
-            this.displayAllButton.Name = "displayAllButton";
-            this.displayAllButton.Size = new System.Drawing.Size(148, 36);
-            this.displayAllButton.TabIndex = 1;
-            this.displayAllButton.Text = "Display All";
-            this.displayAllButton.UseVisualStyleBackColor = true;
-            this.displayAllButton.Click += new System.EventHandler(this.displayAllButton_Click);
             // 
             // removeButton
             // 
@@ -133,9 +122,9 @@
             // 
             // removePassedButton
             // 
-            this.removePassedButton.Location = new System.Drawing.Point(622, 334);
+            this.removePassedButton.Location = new System.Drawing.Point(468, 334);
             this.removePassedButton.Name = "removePassedButton";
-            this.removePassedButton.Size = new System.Drawing.Size(142, 36);
+            this.removePassedButton.Size = new System.Drawing.Size(298, 36);
             this.removePassedButton.TabIndex = 7;
             this.removePassedButton.Text = "Remove Passed Deadline";
             this.removePassedButton.UseVisualStyleBackColor = true;
@@ -161,7 +150,6 @@
             this.Controls.Add(this.sortDeadlineButton);
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.stickNoteControl);
-            this.Controls.Add(this.displayAllButton);
             this.Controls.Add(this.displayListView);
             this.Name = "ViewTaskForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -173,7 +161,6 @@
         #endregion
 
         private System.Windows.Forms.ListView displayListView;
-        private System.Windows.Forms.Button displayAllButton;
         private System.Windows.Forms.ColumnHeader titleHeader;
         private System.Windows.Forms.ColumnHeader deadlineHeader;
         private System.Windows.Forms.ColumnHeader descriptionHeader;

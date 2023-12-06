@@ -25,14 +25,9 @@ namespace DeadlineDivine
             InitializeComponent();
             loadTaskDataIntoList();
             menuForm = form;
-            sortDeadlineAsc();
+
             display();         
             timer.Start();
-        }
-
-        private void displayAllButton_Click(object sender, EventArgs e)
-        {
-            display();
         }
 
         //Populate displayListView with task data
@@ -41,6 +36,7 @@ namespace DeadlineDivine
             displayListView.Items.Clear();
             if (taskList.Count > 0)
             {
+                sortDeadlineAsc();
                 foreach (var task in taskList)
                 {
                     ListViewItem item = new ListViewItem(task.Title);

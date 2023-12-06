@@ -59,6 +59,7 @@
             this.muteUnmuteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dateLabel = new System.Windows.Forms.Label();
             this.upcomingDeadlines = new System.Windows.Forms.CheckedListBox();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.liveClock1 = new DeadlineDivine.LiveClock();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -301,13 +302,19 @@
             // 
             // upcomingDeadlines
             // 
-            this.upcomingDeadlines.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.upcomingDeadlines.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.upcomingDeadlines.FormattingEnabled = true;
             this.upcomingDeadlines.Location = new System.Drawing.Point(12, 345);
             this.upcomingDeadlines.Name = "upcomingDeadlines";
             this.upcomingDeadlines.Size = new System.Drawing.Size(784, 556);
             this.upcomingDeadlines.TabIndex = 10;
             this.upcomingDeadlines.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.upcomingDeadlines_ItemCheck);
+            // 
+            // timer
+            // 
+            this.timer.Enabled = true;
+            this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // liveClock1
             // 
@@ -379,6 +386,7 @@
         private System.Windows.Forms.ToolStripMenuItem lowerVolumeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem muteUnmuteToolStripMenuItem;
         private System.Windows.Forms.CheckedListBox upcomingDeadlines;
+        private System.Windows.Forms.Timer timer;
     }
 }
 
