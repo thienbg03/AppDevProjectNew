@@ -58,24 +58,25 @@
             this.lowerVolumeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.muteUnmuteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dateLabel = new System.Windows.Forms.Label();
-            this.liveClock1 = new DeadlineDivine.LiveClock();
             this.upcomingDeadlines = new System.Windows.Forms.CheckedListBox();
+            this.liveClock1 = new DeadlineDivine.LiveClock();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainLabel
             // 
-            this.mainLabel.AutoSize = true;
+            this.mainLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.mainLabel.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mainLabel.Location = new System.Drawing.Point(55, 42);
+            this.mainLabel.Location = new System.Drawing.Point(12, 88);
             this.mainLabel.Name = "mainLabel";
-            this.mainLabel.Size = new System.Drawing.Size(278, 45);
+            this.mainLabel.Size = new System.Drawing.Size(786, 63);
             this.mainLabel.TabIndex = 0;
             this.mainLabel.Text = "Deadline Tracker";
+            this.mainLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // addTaskButton
             // 
-            this.addTaskButton.Location = new System.Drawing.Point(84, 226);
+            this.addTaskButton.Location = new System.Drawing.Point(58, 209);
             this.addTaskButton.Name = "addTaskButton";
             this.addTaskButton.Size = new System.Drawing.Size(193, 41);
             this.addTaskButton.TabIndex = 1;
@@ -85,7 +86,7 @@
             // 
             // viewTasksButton
             // 
-            this.viewTasksButton.Location = new System.Drawing.Point(84, 309);
+            this.viewTasksButton.Location = new System.Drawing.Point(315, 209);
             this.viewTasksButton.Name = "viewTasksButton";
             this.viewTasksButton.Size = new System.Drawing.Size(193, 41);
             this.viewTasksButton.TabIndex = 3;
@@ -95,7 +96,7 @@
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(84, 389);
+            this.exitButton.Location = new System.Drawing.Point(571, 209);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(193, 41);
             this.exitButton.TabIndex = 4;
@@ -105,9 +106,8 @@
             // 
             // upcomingLabel
             // 
-            this.upcomingLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.upcomingLabel.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.upcomingLabel.Location = new System.Drawing.Point(558, 24);
+            this.upcomingLabel.Location = new System.Drawing.Point(237, 279);
             this.upcomingLabel.Name = "upcomingLabel";
             this.upcomingLabel.Size = new System.Drawing.Size(327, 63);
             this.upcomingLabel.TabIndex = 6;
@@ -122,7 +122,7 @@
             this.musicToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1031, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(809, 24);
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -292,39 +292,39 @@
             // dateLabel
             // 
             this.dateLabel.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateLabel.Location = new System.Drawing.Point(12, 90);
+            this.dateLabel.Location = new System.Drawing.Point(7, 30);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Size = new System.Drawing.Size(367, 38);
             this.dateLabel.TabIndex = 9;
             this.dateLabel.Text = "Date";
-            this.dateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // liveClock1
-            // 
-            this.liveClock1.AutoSize = true;
-            this.liveClock1.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.liveClock1.Location = new System.Drawing.Point(113, 134);
-            this.liveClock1.Margin = new System.Windows.Forms.Padding(6);
-            this.liveClock1.Name = "liveClock1";
-            this.liveClock1.Size = new System.Drawing.Size(164, 30);
-            this.liveClock1.TabIndex = 7;
+            this.dateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // upcomingDeadlines
             // 
             this.upcomingDeadlines.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.upcomingDeadlines.FormattingEnabled = true;
-            this.upcomingDeadlines.Location = new System.Drawing.Point(404, 134);
+            this.upcomingDeadlines.Location = new System.Drawing.Point(12, 345);
             this.upcomingDeadlines.Name = "upcomingDeadlines";
-            this.upcomingDeadlines.Size = new System.Drawing.Size(615, 424);
+            this.upcomingDeadlines.Size = new System.Drawing.Size(784, 556);
             this.upcomingDeadlines.TabIndex = 10;
             this.upcomingDeadlines.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.upcomingDeadlines_ItemCheck);
+            // 
+            // liveClock1
+            // 
+            this.liveClock1.AutoSize = true;
+            this.liveClock1.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.liveClock1.Location = new System.Drawing.Point(658, 30);
+            this.liveClock1.Margin = new System.Windows.Forms.Padding(6);
+            this.liveClock1.Name = "liveClock1";
+            this.liveClock1.Size = new System.Drawing.Size(140, 30);
+            this.liveClock1.TabIndex = 7;
             // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1031, 575);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(809, 911);
             this.Controls.Add(this.upcomingDeadlines);
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.liveClock1);

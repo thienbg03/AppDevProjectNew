@@ -52,7 +52,7 @@
             this.descriptionHeader});
             this.displayListView.GridLines = true;
             this.displayListView.HideSelection = false;
-            this.displayListView.Location = new System.Drawing.Point(12, 55);
+            this.displayListView.Location = new System.Drawing.Point(12, 12);
             this.displayListView.Name = "displayListView";
             this.displayListView.Size = new System.Drawing.Size(423, 314);
             this.displayListView.TabIndex = 0;
@@ -77,9 +77,9 @@
             // 
             // displayAllButton
             // 
-            this.displayAllButton.Location = new System.Drawing.Point(441, 313);
+            this.displayAllButton.Location = new System.Drawing.Point(441, 334);
             this.displayAllButton.Name = "displayAllButton";
-            this.displayAllButton.Size = new System.Drawing.Size(90, 36);
+            this.displayAllButton.Size = new System.Drawing.Size(148, 36);
             this.displayAllButton.TabIndex = 1;
             this.displayAllButton.Text = "Display All";
             this.displayAllButton.UseVisualStyleBackColor = true;
@@ -87,9 +87,9 @@
             // 
             // removeButton
             // 
-            this.removeButton.Location = new System.Drawing.Point(345, 13);
+            this.removeButton.Location = new System.Drawing.Point(287, 334);
             this.removeButton.Name = "removeButton";
-            this.removeButton.Size = new System.Drawing.Size(90, 36);
+            this.removeButton.Size = new System.Drawing.Size(148, 36);
             this.removeButton.TabIndex = 3;
             this.removeButton.Text = "Remove Task";
             this.removeButton.UseVisualStyleBackColor = true;
@@ -97,9 +97,9 @@
             // 
             // sortDeadlineButton
             // 
-            this.sortDeadlineButton.Location = new System.Drawing.Point(142, 12);
+            this.sortDeadlineButton.Location = new System.Drawing.Point(131, 334);
             this.sortDeadlineButton.Name = "sortDeadlineButton";
-            this.sortDeadlineButton.Size = new System.Drawing.Size(140, 36);
+            this.sortDeadlineButton.Size = new System.Drawing.Size(150, 36);
             this.sortDeadlineButton.TabIndex = 4;
             this.sortDeadlineButton.Text = "Sort By Deadline";
             this.sortDeadlineButton.UseVisualStyleBackColor = true;
@@ -107,9 +107,9 @@
             // 
             // addTask
             // 
-            this.addTask.Location = new System.Drawing.Point(12, 12);
+            this.addTask.Location = new System.Drawing.Point(12, 334);
             this.addTask.Name = "addTask";
-            this.addTask.Size = new System.Drawing.Size(90, 36);
+            this.addTask.Size = new System.Drawing.Size(113, 36);
             this.addTask.TabIndex = 5;
             this.addTask.Text = "Add";
             this.addTask.UseVisualStyleBackColor = true;
@@ -118,9 +118,9 @@
             // saveButton
             // 
             this.saveButton.Enabled = false;
-            this.saveButton.Location = new System.Drawing.Point(647, 313);
+            this.saveButton.Location = new System.Drawing.Point(453, 262);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(90, 36);
+            this.saveButton.Size = new System.Drawing.Size(269, 47);
             this.saveButton.TabIndex = 6;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
@@ -133,9 +133,9 @@
             // 
             // removePassedButton
             // 
-            this.removePassedButton.Location = new System.Drawing.Point(623, 13);
+            this.removePassedButton.Location = new System.Drawing.Point(595, 334);
             this.removePassedButton.Name = "removePassedButton";
-            this.removePassedButton.Size = new System.Drawing.Size(110, 35);
+            this.removePassedButton.Size = new System.Drawing.Size(142, 36);
             this.removePassedButton.TabIndex = 7;
             this.removePassedButton.Text = "Remove Passed Deadline";
             this.removePassedButton.UseVisualStyleBackColor = true;
@@ -145,16 +145,16 @@
             // 
             this.stickNoteControl.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.stickNoteControl.Enabled = false;
-            this.stickNoteControl.Location = new System.Drawing.Point(441, 55);
+            this.stickNoteControl.Location = new System.Drawing.Point(441, 12);
             this.stickNoteControl.Name = "stickNoteControl";
-            this.stickNoteControl.Size = new System.Drawing.Size(296, 252);
+            this.stickNoteControl.Size = new System.Drawing.Size(296, 314);
             this.stickNoteControl.TabIndex = 2;
             // 
             // ViewTaskForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(745, 377);
+            this.ClientSize = new System.Drawing.Size(747, 380);
             this.Controls.Add(this.removePassedButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.addTask);
