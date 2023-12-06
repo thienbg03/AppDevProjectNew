@@ -118,9 +118,9 @@
             // saveButton
             // 
             this.saveButton.Enabled = false;
-            this.saveButton.Location = new System.Drawing.Point(453, 262);
+            this.saveButton.Location = new System.Drawing.Point(491, 252);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(269, 47);
+            this.saveButton.Size = new System.Drawing.Size(139, 28);
             this.saveButton.TabIndex = 6;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
@@ -147,7 +147,7 @@
             this.stickNoteControl.Enabled = false;
             this.stickNoteControl.Location = new System.Drawing.Point(441, 12);
             this.stickNoteControl.Name = "stickNoteControl";
-            this.stickNoteControl.Size = new System.Drawing.Size(296, 314);
+            this.stickNoteControl.Size = new System.Drawing.Size(296, 287);
             this.stickNoteControl.TabIndex = 2;
             // 
             // ViewTaskForm
