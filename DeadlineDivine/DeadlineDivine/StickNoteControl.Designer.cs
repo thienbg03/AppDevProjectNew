@@ -52,7 +52,7 @@
             // 
             this.titleTextBox.Location = new System.Drawing.Point(49, 6);
             this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new System.Drawing.Size(238, 20);
+            this.titleTextBox.Size = new System.Drawing.Size(268, 20);
             this.titleTextBox.TabIndex = 1;
             // 
             // deadlineTextBox
@@ -60,7 +60,7 @@
             this.deadlineTextBox.Location = new System.Drawing.Point(83, 32);
             this.deadlineTextBox.Name = "deadlineTextBox";
             this.deadlineTextBox.ReadOnly = true;
-            this.deadlineTextBox.Size = new System.Drawing.Size(204, 20);
+            this.deadlineTextBox.Size = new System.Drawing.Size(234, 20);
             this.deadlineTextBox.TabIndex = 2;
             // 
             // deadlineLabel
@@ -87,7 +87,7 @@
             // 
             this.descriptionTextBox.Location = new System.Drawing.Point(8, 78);
             this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.Size = new System.Drawing.Size(279, 127);
+            this.descriptionTextBox.Size = new System.Drawing.Size(309, 127);
             this.descriptionTextBox.TabIndex = 5;
             this.descriptionTextBox.Text = "";
             // 
@@ -97,9 +97,9 @@
             this.datePicker.Cursor = System.Windows.Forms.Cursors.Default;
             this.datePicker.CustomFormat = "";
             this.datePicker.Font = new System.Drawing.Font("Kristen ITC", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.datePicker.Location = new System.Drawing.Point(49, 211);
+            this.datePicker.Location = new System.Drawing.Point(8, 211);
             this.datePicker.Name = "datePicker";
-            this.datePicker.Size = new System.Drawing.Size(238, 25);
+            this.datePicker.Size = new System.Drawing.Size(207, 25);
             this.datePicker.TabIndex = 7;
             this.datePicker.Visible = false;
             this.datePicker.ValueChanged += new System.EventHandler(this.datePicker_ValueChanged);
@@ -111,7 +111,7 @@
             this.timePicker.CustomFormat = "HH:mm tt";
             this.timePicker.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.timePicker.Location = new System.Drawing.Point(191, 242);
+            this.timePicker.Location = new System.Drawing.Point(221, 211);
             this.timePicker.Name = "timePicker";
             this.timePicker.ShowUpDown = true;
             this.timePicker.Size = new System.Drawing.Size(96, 26);
@@ -133,7 +133,7 @@
             this.Controls.Add(this.titleTextBox);
             this.Controls.Add(this.titleLabel);
             this.Name = "StickNoteControl";
-            this.Size = new System.Drawing.Size(296, 279);
+            this.Size = new System.Drawing.Size(320, 279);
             this.ResumeLayout(false);
             this.PerformLayout();
 

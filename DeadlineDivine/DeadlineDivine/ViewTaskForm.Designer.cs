@@ -77,7 +77,7 @@
             // 
             // displayAllButton
             // 
-            this.displayAllButton.Location = new System.Drawing.Point(441, 334);
+            this.displayAllButton.Location = new System.Drawing.Point(468, 334);
             this.displayAllButton.Name = "displayAllButton";
             this.displayAllButton.Size = new System.Drawing.Size(148, 36);
             this.displayAllButton.TabIndex = 1;
@@ -87,7 +87,7 @@
             // 
             // removeButton
             // 
-            this.removeButton.Location = new System.Drawing.Point(287, 334);
+            this.removeButton.Location = new System.Drawing.Point(314, 334);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(148, 36);
             this.removeButton.TabIndex = 3;
@@ -97,7 +97,7 @@
             // 
             // sortDeadlineButton
             // 
-            this.sortDeadlineButton.Location = new System.Drawing.Point(131, 334);
+            this.sortDeadlineButton.Location = new System.Drawing.Point(158, 334);
             this.sortDeadlineButton.Name = "sortDeadlineButton";
             this.sortDeadlineButton.Size = new System.Drawing.Size(150, 36);
             this.sortDeadlineButton.TabIndex = 4;
@@ -109,7 +109,7 @@
             // 
             this.addTask.Location = new System.Drawing.Point(12, 334);
             this.addTask.Name = "addTask";
-            this.addTask.Size = new System.Drawing.Size(113, 36);
+            this.addTask.Size = new System.Drawing.Size(140, 36);
             this.addTask.TabIndex = 5;
             this.addTask.Text = "Add";
             this.addTask.UseVisualStyleBackColor = true;
@@ -118,9 +118,9 @@
             // saveButton
             // 
             this.saveButton.Enabled = false;
-            this.saveButton.Location = new System.Drawing.Point(491, 252);
+            this.saveButton.Location = new System.Drawing.Point(459, 266);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(139, 28);
+            this.saveButton.Size = new System.Drawing.Size(291, 38);
             this.saveButton.TabIndex = 6;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
@@ -133,7 +133,7 @@
             // 
             // removePassedButton
             // 
-            this.removePassedButton.Location = new System.Drawing.Point(595, 334);
+            this.removePassedButton.Location = new System.Drawing.Point(622, 334);
             this.removePassedButton.Name = "removePassedButton";
             this.removePassedButton.Size = new System.Drawing.Size(142, 36);
             this.removePassedButton.TabIndex = 7;
@@ -147,14 +147,14 @@
             this.stickNoteControl.Enabled = false;
             this.stickNoteControl.Location = new System.Drawing.Point(441, 12);
             this.stickNoteControl.Name = "stickNoteControl";
-            this.stickNoteControl.Size = new System.Drawing.Size(296, 287);
+            this.stickNoteControl.Size = new System.Drawing.Size(325, 314);
             this.stickNoteControl.TabIndex = 2;
             // 
             // ViewTaskForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(747, 380);
+            this.ClientSize = new System.Drawing.Size(778, 380);
             this.Controls.Add(this.removePassedButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.addTask);
