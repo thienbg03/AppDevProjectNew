@@ -241,32 +241,30 @@ namespace DeadlineDivine
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            // Check for tasks with passed deadlines
-            foreach (var task in taskList)
+
+            for(int i = 0; i < displayListView.Items.Count; i++)
             {
+                ListViewItem item = displayListView.Items[i];
+                DateTime dateTime = DateTime.Parse(item.SubItems[1].Text);
 
-                ListViewItem item = displayListView.FindItemWithText(task.Deadline.ToString("G"));
-
-                if (item != null)
+                // Check if the task's deadline has passed
+                if (dateTime < DateTime.Now)
                 {
-                    // Check if the task's deadline has passed
-                    if (task.Deadline < DateTime.Now)
-                    {
-                        // Update the item's background color
-                        item.BackColor = Color.DarkGray; 
-                    }
-                    else if(DateTime.Now.Day == task.Deadline.Day && task.Deadline.TimeOfDay > DateTime.Now.TimeOfDay)
-                    {
-                        item.BackColor = Color.Red;
-                    }
-                    else if (task.Deadline.Day > DateTime.Now.Day && task.Deadline.Day < DateTime.Now.AddDays(5).Day)
-                    {
-                        item.BackColor = Color.Yellow;
-                    }
-                    else if (task.Deadline.Day >= DateTime.Now.AddDays(5).Day)
-                        item.BackColor = Color.LightGreen;
+                    // Update the item's background color
+                    item.BackColor = Color.DarkGray;
                 }
+                else if (DateTime.Now.Day == dateTime.Day && dateTime.TimeOfDay > DateTime.Now.TimeOfDay)
+                {
+                    item.BackColor = Color.Red;
+                }
+                else if (dateTime.Day > DateTime.Now.Day && dateTime.Day < DateTime.Now.AddDays(5).Day)
+                {
+                    item.BackColor = Color.Yellow;
+                }
+                else if (dateTime.Day >= DateTime.Now.AddDays(5).Day)
+                    item.BackColor = Color.LightGreen;
             }
+
         }
 
   
