@@ -316,7 +316,7 @@
             this.liveClock1.Location = new System.Drawing.Point(658, 30);
             this.liveClock1.Margin = new System.Windows.Forms.Padding(6);
             this.liveClock1.Name = "liveClock1";
-            this.liveClock1.Size = new System.Drawing.Size(140, 30);
+            this.liveClock1.Size = new System.Drawing.Size(147, 30);
             this.liveClock1.TabIndex = 7;
             // 
             // MenuForm
