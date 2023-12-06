@@ -23,6 +23,8 @@ namespace DeadlineDivine
             InitializeComponent();
             loadTaskDataIntoList();
             display();
+
+            timer.Start();
         }
 
         private void displayAllButton_Click(object sender, EventArgs e)
@@ -44,7 +46,7 @@ namespace DeadlineDivine
                     item.SubItems.Add(task.Description);
 
                     //If the task day is due today, change item color to red
-                    if (DateTime.Now.Day == task.Deadline.Day)
+                    if (DateTime.Now.Day == task.Deadline.Day && task.Deadline.TimeOfDay > DateTime.Now.TimeOfDay)
                     {
                         item.BackColor = Color.Red;
                     }
@@ -52,8 +54,10 @@ namespace DeadlineDivine
                     {
                         item.BackColor = Color.Yellow;
                     }
-                    else
+                    else if(task.Deadline.Day >= DateTime.Now.AddDays(5).Day)
                         item.BackColor = Color.LightGreen;
+                    else
+                        item.BackColor = Color.DarkGray;
 
                     displayListView.Items.Add(item);
                 }
@@ -232,6 +236,67 @@ namespace DeadlineDivine
                     MessageBox.Show("No new changes to save");
                 }
                 
+            }
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            // Check for tasks with passed deadlines
+            foreach (var task in taskList)
+            {
+
+                ListViewItem item = displayListView.FindItemWithText(task.Deadline.ToString("G"));
+
+                if (item != null)
+                {
+                    // Check if the task's deadline has passed
+                    if (task.Deadline < DateTime.Now)
+                    {
+                        // Update the item's background color
+                        item.BackColor = Color.DarkGray; 
+                    }
+                    else if(DateTime.Now.Day == task.Deadline.Day && task.Deadline.TimeOfDay > DateTime.Now.TimeOfDay)
+                    {
+                        item.BackColor = Color.Red;
+                    }
+                    else if (task.Deadline.Day > DateTime.Now.Day && task.Deadline.Day < DateTime.Now.AddDays(5).Day)
+                    {
+                        item.BackColor = Color.Yellow;
+                    }
+                    else if (task.Deadline.Day >= DateTime.Now.AddDays(5).Day)
+                        item.BackColor = Color.LightGreen;
+                }
+            }
+        }
+
+  
+
+        private void removePassedButton_Click(object sender, EventArgs e)
+        {
+            SqlConnection connection = null;
+            SqlCommand cmd = null;
+            try
+            {
+                string cnString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\TaskDatabase.mdf;Integrated Security=True";
+                connection = new SqlConnection(cnString);
+                string query = "DELETE Task WHERE Deadline <= '" + DateTime.Now.ToString("g") + "';";
+                cmd = new SqlCommand(query, connection);
+                connection.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read()) { }
+                loadTaskDataIntoList();
+                stickNoteControl.setText("", "", "");
+                display();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (connection != null) { connection.Close(); }
+                if (cmd != null) { cmd.Dispose(); }
+
             }
         }
     }

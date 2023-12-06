@@ -21,6 +21,8 @@ namespace DeadlineDivine
         {
             InitializeComponent();
             player.URL = "bg-music.mp3";
+            loadTaskDataIntoList();
+            display();
         }
 
         private void addTaskButton_Click(object sender, EventArgs e)
@@ -31,7 +33,7 @@ namespace DeadlineDivine
 
         private void viewTasksButton_Click(object sender, EventArgs e)
         {
-           ViewTaskForm form = new ViewTaskForm();
+            ViewTaskForm form = new ViewTaskForm();
             form.Show();
             
         }
@@ -60,8 +62,7 @@ namespace DeadlineDivine
             player.controls.play();
             player.settings.volume = 10;
             player.settings.setMode("loop", true);
-            loadTaskDataIntoList();
-            display();
+
         }
 
         private void ClearColor()
@@ -260,7 +261,7 @@ namespace DeadlineDivine
                 cmd = new SqlCommand(query, connection);
                 connection.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
-                    upcomingDeadlines.Items.RemoveAt(task);
+                upcomingDeadlines.Items.RemoveAt(task);
                 loadTaskDataIntoList();
                 display();
             }

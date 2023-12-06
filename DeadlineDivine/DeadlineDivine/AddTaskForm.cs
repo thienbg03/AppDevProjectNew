@@ -42,7 +42,7 @@ namespace DeadlineDivine
                 string description = commentTextBox.Text;
                 DateTime date = datePicker.Value;
                 DateTime time = timePicker.Value;
-                DateTime deadline = new DateTime(date.Year, date.Month, date.Day, time.Hour, time.Minute, 0);
+                DateTime deadline =DateTime.Parse(date.ToString("d") + " " + time.ToString("T"));
                 Task task = new Task(title, deadline, description);
                 string cnString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\TaskDatabase.mdf;Integrated Security=True";
                 connection = new SqlConnection(cnString);

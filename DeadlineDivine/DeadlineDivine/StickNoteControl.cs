@@ -17,6 +17,7 @@ namespace DeadlineDivine
             InitializeComponent();
         }
 
+        //Set Text For Sticky Note 
         public void setText(string title, string deadline, string description)
         {
             titleTextBox.Text = title;
@@ -25,25 +26,17 @@ namespace DeadlineDivine
             if (deadline.Equals(""))
             {
                 datePicker.Visible = false;
-                datePicker.Visible = false;
+                timePicker.Visible = false;
             }
             else
             {
-                datePicker.Value = DateTime.Parse(deadline);
                 datePicker.MinDate = DateTime.Now;
-
-                timePicker.Value = DateTime.Parse(deadline);
-                timePicker.MinDate = DateTime.Now.AddMinutes(1);
-
-
-
+                datePicker.Value = DateTime.Now;
+                timePicker.MinDate = DateTime.Now.AddMinutes(1);          
                 datePicker.Visible = true;
                 timePicker.Visible = true;
             }
-            
-                
-            
-            
+                      
         }
 
         public String getTitleText()
@@ -63,16 +56,7 @@ namespace DeadlineDivine
 
         private void datePicker_ValueChanged(object sender, EventArgs e)
         {
-            if (datePicker.Value.Day > DateTime.Now.Day)
-            {
-                timePicker.MinDate = datePicker.Value.Date;
-                timePicker.Value = datePicker.Value;
-            }else if(datePicker.Value.Day  == DateTime.Now.Day)
-            {
-                timePicker.MinDate = DateTime.Now.AddMinutes(1);
-                timePicker.Value = DateTime.Now.AddMinutes(1);
-            }
-            deadlineTextBox.Text = timePicker.Value.ToString("G");
+            deadlineTextBox.Text = datePicker.Value.ToString("G");
         }
 
         private void timePicker_ValueChanged(object sender, EventArgs e)

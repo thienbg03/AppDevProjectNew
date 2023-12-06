@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.displayListView = new System.Windows.Forms.ListView();
             this.titleHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.deadlineHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -37,6 +38,8 @@
             this.sortDeadlineButton = new System.Windows.Forms.Button();
             this.addTask = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.removePassedButton = new System.Windows.Forms.Button();
             this.stickNoteControl = new DeadlineDivine.StickNoteControl();
             this.SuspendLayout();
             // 
@@ -74,7 +77,7 @@
             // 
             // displayAllButton
             // 
-            this.displayAllButton.Location = new System.Drawing.Point(284, 13);
+            this.displayAllButton.Location = new System.Drawing.Point(441, 313);
             this.displayAllButton.Name = "displayAllButton";
             this.displayAllButton.Size = new System.Drawing.Size(90, 36);
             this.displayAllButton.TabIndex = 1;
@@ -84,7 +87,7 @@
             // 
             // removeButton
             // 
-            this.removeButton.Location = new System.Drawing.Point(380, 13);
+            this.removeButton.Location = new System.Drawing.Point(345, 13);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(90, 36);
             this.removeButton.TabIndex = 3;
@@ -94,7 +97,7 @@
             // 
             // sortDeadlineButton
             // 
-            this.sortDeadlineButton.Location = new System.Drawing.Point(138, 13);
+            this.sortDeadlineButton.Location = new System.Drawing.Point(142, 12);
             this.sortDeadlineButton.Name = "sortDeadlineButton";
             this.sortDeadlineButton.Size = new System.Drawing.Size(140, 36);
             this.sortDeadlineButton.TabIndex = 4;
@@ -104,7 +107,7 @@
             // 
             // addTask
             // 
-            this.addTask.Location = new System.Drawing.Point(12, 13);
+            this.addTask.Location = new System.Drawing.Point(12, 12);
             this.addTask.Name = "addTask";
             this.addTask.Size = new System.Drawing.Size(90, 36);
             this.addTask.TabIndex = 5;
@@ -123,6 +126,20 @@
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
+            // timer
+            // 
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // removePassedButton
+            // 
+            this.removePassedButton.Location = new System.Drawing.Point(623, 13);
+            this.removePassedButton.Name = "removePassedButton";
+            this.removePassedButton.Size = new System.Drawing.Size(110, 35);
+            this.removePassedButton.TabIndex = 7;
+            this.removePassedButton.Text = "Remove Passed Deadline";
+            this.removePassedButton.UseVisualStyleBackColor = true;
+            this.removePassedButton.Click += new System.EventHandler(this.removePassedButton_Click);
+            // 
             // stickNoteControl
             // 
             this.stickNoteControl.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -137,6 +154,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(745, 377);
+            this.Controls.Add(this.removePassedButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.addTask);
             this.Controls.Add(this.sortDeadlineButton);
@@ -163,5 +181,7 @@
         private System.Windows.Forms.Button sortDeadlineButton;
         private System.Windows.Forms.Button addTask;
         private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Button removePassedButton;
     }
 }

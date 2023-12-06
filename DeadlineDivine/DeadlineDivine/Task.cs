@@ -62,14 +62,7 @@ namespace DeadlineDivine
             get { return deadline; }
 
             set { 
-                if(value < DateTime.Now) {
-                    throw new Exception("Cannot Be Before Now");
-                }
-                else
-                {
-                    deadline = value;
-                }
-            
+                  deadline = value;         
             }
         }
 
