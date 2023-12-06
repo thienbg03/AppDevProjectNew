@@ -15,19 +15,22 @@ namespace DeadlineDivine
     public partial class AddTaskForm : Form
     {
         private ViewTaskForm viewForm = null;
-        public AddTaskForm()
+        private MenuForm menuForm;
+        public AddTaskForm(MenuForm menuForm)
         {             
             InitializeComponent();
             datePicker.MinDate = DateTime.Now;
-            timePicker.MinDate = DateTime.Now.AddMinutes(1);                     
+            timePicker.MinDate = DateTime.Now.AddMinutes(1);
+            this.menuForm = menuForm;
         }
 
-        public AddTaskForm(ViewTaskForm form)
+        public AddTaskForm(ViewTaskForm form, MenuForm menuForm)
         {
             InitializeComponent();
             ViewForm = form;
             datePicker.MinDate = DateTime.Now;
             timePicker.MinDate = DateTime.Now.AddMinutes(1);
+            this.menuForm = menuForm;
         }
 
         private ViewTaskForm ViewForm { get { return viewForm; } set { viewForm = value; } }
@@ -53,11 +56,18 @@ namespace DeadlineDivine
                 SqlDataReader reader = cmd.ExecuteReader();
                 
                 while (reader.Read()) { }
+
+                //Adapt changes to viewForm is valid
                 if(viewForm != null)
                 {
                     viewForm.loadTaskDataIntoList();
                     viewForm.display();
                 }
+
+                //Adapt changes to menuform
+                menuForm.loadTaskDataIntoList();
+                menuForm.display();
+
                 MessageBox.Show("Task Added Succesfully");
             }
             catch (Exception ex)

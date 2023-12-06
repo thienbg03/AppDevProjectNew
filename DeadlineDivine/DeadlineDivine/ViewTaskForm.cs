@@ -16,14 +16,16 @@ namespace DeadlineDivine
 {
     public partial class ViewTaskForm : Form
     {
+        MenuForm menuForm;
+
         List<Task> taskList = new List<Task>();
         int sortDeadline = 0;
-        public ViewTaskForm()
+        public ViewTaskForm(MenuForm form)
         {          
             InitializeComponent();
             loadTaskDataIntoList();
+            menuForm = form;
             display();
-
             timer.Start();
         }
 
@@ -145,6 +147,10 @@ namespace DeadlineDivine
                     while (reader.Read()) { }
                     displayListView.Items.Remove(displayListView.SelectedItems[0]);
                     loadTaskDataIntoList();
+
+                    //Adapt the menuForm to changes
+                    menuForm.loadTaskDataIntoList();
+                    menuForm.display();
                     MessageBox.Show("Task Completed");
                 }
                 catch (Exception ex)
@@ -189,7 +195,7 @@ namespace DeadlineDivine
 
         private void addTask_Click(object sender, EventArgs e)
         {
-            AddTaskForm addTaskForm = new AddTaskForm(this);
+            AddTaskForm addTaskForm = new AddTaskForm(this, menuForm);
             addTaskForm.Visible = true;
         }
 
@@ -218,7 +224,12 @@ namespace DeadlineDivine
                         loadTaskDataIntoList();
                         stickNoteControl.setText("", "", "");
                         display();
-                        MessageBox.Show("Saved");                       
+
+                        //Adapt the menuForm to changes
+                        menuForm.loadTaskDataIntoList();
+                        menuForm.display();
+                        MessageBox.Show("Saved");                    
+                        
                     }
                     catch (Exception ex)
                     {
@@ -267,8 +278,6 @@ namespace DeadlineDivine
 
         }
 
-  
-
         private void removePassedButton_Click(object sender, EventArgs e)
         {
             SqlConnection connection = null;
@@ -285,6 +294,10 @@ namespace DeadlineDivine
                 loadTaskDataIntoList();
                 stickNoteControl.setText("", "", "");
                 display();
+
+                //Adapt the menuForm to changes
+                menuForm.loadTaskDataIntoList();
+                menuForm.display();
             }
             catch (Exception ex)
             {

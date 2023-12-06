@@ -27,13 +27,14 @@ namespace DeadlineDivine
 
         private void addTaskButton_Click(object sender, EventArgs e)
         {
-            AddTaskForm form = new AddTaskForm();
-            form.Show();           
+            AddTaskForm form = new AddTaskForm(this);
+            form.ShowDialog();
+                     
         }
 
         private void viewTasksButton_Click(object sender, EventArgs e)
         {
-            ViewTaskForm form = new ViewTaskForm();
+            ViewTaskForm form = new ViewTaskForm(this);
             form.Show();
             
         }
