@@ -30,9 +30,19 @@ namespace DeadlineDivine
             }
             else
             {
-                datePicker.MinDate = DateTime.Now;
-                datePicker.Value = DateTime.Now;
-                timePicker.MinDate = DateTime.Now.AddMinutes(1);          
+                datePicker.MinDate = DateTime.Parse(deadline);
+                datePicker.Value = DateTime.Parse(deadline);
+
+
+                timePicker.MinDate = DateTime.Parse("0:00:00 AM");
+                timePicker.Value = DateTime.Parse(deadline);
+                
+
+
+
+
+
+
                 datePicker.Visible = true;
                 timePicker.Visible = true;
             }
@@ -56,6 +66,10 @@ namespace DeadlineDivine
 
         private void datePicker_ValueChanged(object sender, EventArgs e)
         {
+           if(datePicker.Value > DateTime.Now)
+            {
+                datePicker.MinDate = DateTime.Now;
+            }
             deadlineTextBox.Text = datePicker.Value.ToString("G");
         }
 

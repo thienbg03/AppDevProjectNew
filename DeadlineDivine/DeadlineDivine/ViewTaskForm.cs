@@ -25,7 +25,8 @@ namespace DeadlineDivine
             InitializeComponent();
             loadTaskDataIntoList();
             menuForm = form;
-            display();
+            sortDeadlineAsc();
+            display();         
             timer.Start();
         }
 
