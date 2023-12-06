@@ -238,43 +238,51 @@ namespace DeadlineDivine
 
         public void display()
         {
+            
             upcomingDeadlines.Items.Clear();
-            for (int i = 0; i <  taskList.Count; i++)
+            foreach (Task task in taskList)
             {
-                upcomingDeadlines.Items.Add(taskList[i].ToString());
+                upcomingDeadlines.Items.Add(task.ToString());
             }
         }
 
         private void upcomingDeadlines_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            var task = upcomingDeadlines.SelectedIndex;
-            var item = taskList[task].Id;
-            MessageBox.Show(item.ToString());
-            SqlConnection connection = null;
-            SqlCommand cmd = null;
+            upcomingDeadlines.BeginInvoke(new Action(() =>
+            {
+                var task = upcomingDeadlines.SelectedIndex;
+                if (task != -1)
+                {
+                    var item = taskList[task].Id;
+                    SqlConnection connection = null;
+                    SqlCommand cmd = null;
 
-            try
-            {
-                string cnString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\TaskDatabase.mdf;Integrated Security=True";
-                connection = new SqlConnection(cnString);
-                string query = "DELETE FROM TASK WHERE Id = '" + item + "';";
-                
-                cmd = new SqlCommand(query, connection);
-                connection.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-                upcomingDeadlines.Items.RemoveAt(task);
-                loadTaskDataIntoList();
-                display();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (connection != null) { connection.Close(); }
-                if (cmd != null) { cmd.Dispose(); }
-            }
+                    try
+                    {
+                        string cnString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\TaskDatabase.mdf;Integrated Security=True";
+                        connection = new SqlConnection(cnString);
+                        string query = "DELETE FROM TASK WHERE Id = '" + item + "';";
+
+                        cmd = new SqlCommand(query, connection);
+                        connection.Open();
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        upcomingDeadlines.Items.RemoveAt(task);
+                        loadTaskDataIntoList();
+                        display();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        if (connection != null) { connection.Close(); }
+                        if (cmd != null) { cmd.Dispose(); }
+                    }
+                }
+            }));
         }
+
+
     }
 }
