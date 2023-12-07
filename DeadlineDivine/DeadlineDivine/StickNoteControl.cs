@@ -32,17 +32,8 @@ namespace DeadlineDivine
             {
                 datePicker.MinDate = DateTime.Parse(deadline);
                 datePicker.Value = DateTime.Parse(deadline);
-
-
-                timePicker.MinDate = DateTime.Parse("0:00:00 AM");
                 timePicker.Value = DateTime.Parse(deadline);
                 
-
-
-
-
-
-
                 datePicker.Visible = true;
                 timePicker.Visible = true;
             }
